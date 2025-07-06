@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Quiz for Piruu 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe4ec, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff3399;
+      margin-bottom: 10px;
+    }
+
+    .question-box {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px hotpink;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      color: #cc0066;
+      margin-bottom: 15px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #99004d;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: hotpink;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      display: none;
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💞 Let’s see how well you know your Nitin 😛</h1>
+
+  <div class="question-box" id="quizBox">
+    <div class="question" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+  </div>
+
+  <div id="result"></div>
+
+  <a href="final.html" class="next-button" id="nextBtn">Next ➡️</a>
+
+  <script>
+    const quizData = [
+      {
+        question: "Piruu meri life mein kab aayi thi? 😍",
+        options: ["2019", "2020", "2021"],
+        answer: "2020"
+      },
+      {
+        question: "Mujhe tumhara kaunsa style sabse cute lagta hai? 🥰",
+        options: ["Gusse waala face 😡", "Chhupi smile 😊", "Bubblu voice 😛"],
+        answer: "Chhupi smile 😊"
+      },
+      {
+        question: "Agar main sad ho jaun toh tum kya karti ho? 😢",
+        options: ["Ignore 😒", "Hug & cheer up 🤗", "Bolu mat please 🙈"],
+        answer: "Hug & cheer up 🤗"
+      },
+      {
+        question: "Mujhe tumhara kaunsa naam sabse pyara lagta hai? 😚",
+        options: ["Piruu", "Dudu", "Babu"],
+        answer: "Piruu"
+      },
+      {
+        question: "Main tumse kitna pyaar karta hoon? ❤️",
+        options: ["Thoda", "Zyada", "Beintehaa... har saans mein 😭"],
+        answer: "Beintehaa... har saans mein 😭"
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    const questionText = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const result = document.getElementById("result");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function loadQuestion() {
+      const q = quizData[current];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.onclick = () => {
+          if (option === q.answer) score++;
+          current++;
+          if (current < quizData.length) {
+            loadQuestion();
+          } else {
+            showResult();
+          }
+        };
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function showResult() {
+      document.getElementById("quizBox").style.display = "none";
+      result.innerHTML = `🎉 You got ${score} out of ${quizData.length} right!<br><br>
+      <strong>Chahe 0 ho ya 100... tum meri Jaan ho hamesha ❤️</strong>`;
+      nextBtn.style.display = "inline-block";
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>

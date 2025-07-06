@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Surprise 🎆</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+      overflow: hidden;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    #emojiRain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 2rem;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .glow-text {
+      font-size: 2rem;
+      color: #ff1493;
+      text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4;
+      z-index: 2;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .line {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      margin: 12px;
+      font-size: 1.4rem;
+    }
+
+    audio {
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fireworks -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Emoji Rain -->
+  <div id="emojiRain"></div>
+
+  <!-- Love Lines -->
+  <div class="glow-text" id="loveLines">
+    <div class="line">Love you forever Piruu 💖</div>
+    <div class="line">Mera bachhhaa 🧸</div>
+    <div class="line">Meri duniyaaa 🌎</div>
+    <div class="line">My everything 😭</div>
+    <div class="line">Tum ho toh sab kuch hai 🥺</div>
+    <div class="line">I will love you till the end of time...Umhhhaaaaa🩷🥹 ⏳</div>
+  </div>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="assets/song.mp3.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="js/fireworks.js"></script>
+
+  <!-- Line-by-line show -->
+  <script>
+    const lines = document.querySelectorAll('.line');
+    lines.forEach((line, i) => {
+      setTimeout(() => {
+        line.style.opacity = 1;
+      }, i * 2000);
+    });
+  </script>
+
+  <!-- Emoji Rain -->
+  <script>
+    const emojiList = ['💖','💘','💕','💗','💓','💝','💞','💟','🧸','🌸'];
+    const emojiContainer = document.getElementById("emojiRain");
+
+    function createEmoji() {
+      const emoji = document.createElement("div");
+      emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+      emoji.style.position = "absolute";
+      emoji.style.left = Math.random() * window.innerWidth + "px";
+      emoji.style.animation = "fall 5s linear infinite";
+      emoji.style.top = "-2rem";
+      emojiContainer.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 6000);
+    }
+
+    setInterval(createEmoji, 300);
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fall {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>

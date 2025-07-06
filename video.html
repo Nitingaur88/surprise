@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Memories in Motion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h2 {
+      color: hotpink;
+      font-size: 2rem;
+      margin: 20px 10px;
+    }
+
+    .video-container {
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 20px hotpink;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff0f8;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: hotpink;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My Happiness Meri Piruu🥹😚</h2>
+
+  <div class="video-container">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/video.mp4.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <a href="letter.html" class="next-button">Letter For My Piruu💗 ➡️</a>
+
+</body>
+</html>

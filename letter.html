@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letter for My Piruu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 25px hotpink;
+      max-width: 90%;
+      width: 600px;
+    }
+
+    h1 {
+      color: #ff3399;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    #letterBox {
+      font-size: 1.2rem;
+      color: #cc0066;
+      min-height: 300px;
+      white-space: pre-wrap;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: hotpink;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      display: none;
+    }
+
+    .heart-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.ibb.co/zZf3yL2/heart.png') no-repeat center;
+      background-size: contain;
+      animation: float 8s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-10vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart-bg" id="hearts"></div>
+
+  <div class="container">
+    <h1>💌 Letter for My Piruu 💌</h1>
+    <div id="letterBox"></div>
+    <a href="quiz.html" class="next-button" id="nextBtn">Next ➡️</a>
+  </div>
+
+  <script>
+    const letterBox = document.getElementById('letterBox');
+    const nextBtn = document.getElementById("nextBtn");
+
+    const letterLines = [
+      "My Dearest Piruu ❤️🥹",
+      "5 saal ho gaye… aur lagta hai kal ki hi baat hai jab tum meri duniya bani thi 🌍",
+      "Tumhare bina sab kuch adhura sa lagta hai, jaise har subah mein suraj ho par roshni na ho ☀️",
+      "Tum mere din ki roshni ho, tum meri har dua ka jawaab ho ✨",
+      "Jab bhi zindagi thak jaati hai, tum meri muskaan ban jaati ho 😊",
+      "Main jaanta hoon, kabhi kabhi kuch baatein rula deti hain 🥺",
+      "Par tum yaad rakhna — chahe duniya saari palat jaaye…",
+      "Main hamesha tumhare saath rahunga… Hamesha. Har pal. Har janam. Har saans mein ❤️",
+      "Tum bas mere saath chalti rehna... 😢",
+      "Baaki duniya ko main jeet lunga — tumhari muskaan ke liye ❤️",
+      "Love you beyond words,",
+      "– Tumhara pagal sa Nitin 💌"
+    ];
+
+    let lineIndex = 0;
+    let wordIndex = 0;
+
+    function typeNextWord() {
+      if (lineIndex < letterLines.length) {
+        const words = letterLines[lineIndex].split(" ");
+        if (wordIndex < words.length) {
+          letterBox.innerHTML += words[wordIndex] + " ";
+          wordIndex++;
+          setTimeout(typeNextWord, 300); // word delay
+        } else {
+          letterBox.innerHTML += "\n\n";
+          lineIndex++;
+          wordIndex = 0;
+          setTimeout(typeNextWord, 1000); // line delay
+        }
+      } else {
+        nextBtn.style.display = "inline-block";
+      }
+    }
+
+    typeNextWord();
+
+    // floating hearts
+    const heartContainer = document.getElementById("hearts");
+    for (let j = 0; j < 30; j++) {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 6) + "s";
+      heartContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

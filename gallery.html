@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Beautiful Piruu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe4ec, #ffe4f2);
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      color: hotpink;
+      font-size: 2rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      color: #ff3399;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .glider-contain {
+      width: 90%;
+      margin: auto;
+    }
+
+    .glider-track img {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 10px;
+      box-shadow: 0 0 15px hotpink;
+      transition: transform 0.3s ease;
+    }
+
+    .glider-track img:hover {
+      transform: scale(1.05);
+    }
+
+    .glider-prev,
+    .glider-next {
+      background: hotpink;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 1.2rem;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: hotpink;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h2>Tere Chehre Mein Meri Duniya Hai...🩷🥹</h2>
+  <p>Saari Duniya Ek Taraf Merii Piruu Ek Taraf...😤🥰</p>
+
+  <div class="glider-contain">
+    <div class="glider">
+       <img src="assets/photo1.jpg" alt="Memory 1">
+      <img src="assets/photo2.jpg" alt="Memory 2">
+      <img src="assets/photo4.jpg" alt="Memory 4">
+      <img src="assets/photo5.jpeg" alt="Memory 5">
+      <img src="assets/photo6.jpeg" alt="Memory 6">
+      <img src="assets/photo7.jpeg" alt="Memory 7">
+      <img src="assets/photo8.jpeg" alt="Memory 8">
+      <img src="assets/photo11.jpeg" alt="Memory 11">
+      <img src="assets/photo12.jpeg" alt="Memory 12">
+      <img src="assets/photo13.jpeg" alt="Memory 13">
+      <img src="assets/photo15.jpeg" alt="Memory 15">
+      <img src="assets/photo16.jpeg" alt="Memory 16">
+      <img src="assets/photo17.jpeg" alt="Memory 17">
+      <img src="assets/photo19.jpeg" alt="Memory 19">
+
+    </div>
+    <button class="glider-prev">«</button>
+    <button class="glider-next">»</button>
+    <div role="tablist" class="dots"></div>
+  </div>
+
+  <a href="video.html" class="next-button">Kittu Ki Happiness ➡️</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+  <script>
+    new Glider(document.querySelector('.glider'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      },
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

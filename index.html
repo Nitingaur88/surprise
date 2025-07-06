@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Our Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe4ec, #ffe4f2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .emoji-bar {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: hotpink;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 10px 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .start-button {
+      background: hotpink;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .start-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="emoji-bar">💖 💓 💞 💗 💘 💌 💝 💜 🧸</div>
+  <h1>Welcome to Our Love World, Piruu 💕</h1>
+  <a href="countdown.html" class="start-button">Start Our Journey ✨</a>
+</body>
+</html>
